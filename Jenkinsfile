@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'slave' //hhhhb
+    label 'slave' //
   }
   tools {
     maven 'apache-maven-3.8.8'
