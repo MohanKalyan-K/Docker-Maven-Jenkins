@@ -7,7 +7,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'  // For debugging, to ensure the pipeline is running
-        git branch: 'main', url: 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git', credentialsId: 'git'
+        git 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git'
       }
     }
     stage('Build') {
