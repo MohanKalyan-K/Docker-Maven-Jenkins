@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'slave'  // Specifies that this pipeline runs on the node with label 'slave'
-  }
+  agent any
   tools {
     maven 'MAVEN_HOME'  // Maven tool name configured in Jenkins
   }
