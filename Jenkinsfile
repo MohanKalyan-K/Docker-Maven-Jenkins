@@ -1,22 +1,22 @@
 pipeline {
   agent {
-    label 'slave' //
+    label 'slave'  // Specifies that this pipeline runs on the node with label 'slave'
   }
   tools {
-    maven 'MAVEN_HOME'
+    maven 'apache-maven-3.9.9'  // Maven tool name configured in Jenkins
   }
   stages {
-    stage ('checkout') {
+    stage('Checkout') {
       steps {
-        sh 'echo passed'
-        // git branch: 'main', url: 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git'
+        sh 'echo passed'  // For debugging, to ensure the pipeline is running
+        git branch: 'main', url: 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git', credentialsId: 'git'
       }
     }
-    stage ('Build') {
-      steps{
+    stage('Build') {
+      steps {
         script {
-          def mvnHome = tool 'apache-maven-3.8.8'
-          sh '${mvnHome}/bin/mvn clean package'
+          def mvnHome = tool 'apache-maven-3.9.9'  // Retrieves the Maven installation path
+          sh "${mvnHome}/bin/mvn clean package"  // Runs Maven command to clean and package
         }
       }
     }
