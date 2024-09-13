@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage ('checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git'
+        sh 'echo passed'
+        // git branch: 'main', url: 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git'
       }
     }
     stage ('Build') {
