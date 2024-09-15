@@ -11,6 +11,9 @@ pipeline {
       }
     }
     stage('Build') {
+      agent {
+        docker { image 'maven:latest' }
+      }
       steps {
         script {
           def mvnHome = tool 'MAVEN_HOME'  // Retrieves the Maven installation path
