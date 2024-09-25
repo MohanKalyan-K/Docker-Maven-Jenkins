@@ -7,7 +7,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'  // For debugging, to ensure the pipeline is running
-        // git 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git'
+        git 'https://github.com/MohanKalyan-K/Docker-Maven-Jenkins.git'
       }
     }
     stage('Build') {
@@ -22,4 +22,12 @@ pipeline {
       }
     }
   }
+  post {
+        success {
+            echo 'Build completed successfully!'
+        }
+        failure {
+            echo 'Build failed. Please check the logs.'
+        }
+    }
 }
